@@ -19,7 +19,7 @@ import javax.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Email {
 
-    String message() default "{invalid.email}";
+    String message() default "{com.oljalatinovic.oljaee.invalid.email}";
 
     Class<?>[] groups() default {};
 
