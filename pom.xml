@@ -12,9 +12,16 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jee.version>7.0</jee.version>
     </properties>
     
     <dependencies>
+	<dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${jee.version}</version>
+            <scope>provided</scope>
+	</dependency>        
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
@@ -28,7 +35,7 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
-            <version>7.0</version>
+            <version>${jee.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
