@@ -2,9 +2,10 @@ package com.oljalatinovic.oljaee.service;
 
 import com.oljalatinovic.oljaee.entity.Address;
 import com.oljalatinovic.oljaee.entity.Country;
-import com.oljalatinovic.oljaee.entity.User;
+import com.oljalatinovic.oljaee.entity.Users;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.annotation.sql.DataSourceDefinition;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
@@ -13,15 +14,24 @@ import javax.inject.Inject;
  *
  * @author Olja Latinović <oljalatinovic88@gmail.com>
  */
+@DataSourceDefinition (
+    name="java:global/jdbc/oljaDS",
+    className="org.apache.derby.jdbc.ClientDataSource",
+    portNumber=1527,
+    serverName="localhost",
+    databaseName="oljaDB",
+    user="olja88",
+    password="password1"
+)
 @Singleton
 @Startup
 public class DBPopulator {
     
     private Country serbia;
     
-    private User admin;
-    private User user;
-    private User olja;
+    private Users admin;
+    private Users user;
+    private Users olja;
     
     @Inject
     private UserService userService;
@@ -35,9 +45,9 @@ public class DBPopulator {
         
         countryService.createCountry(serbia);
         
-        user = new User("User", "User", "user", "user", "user@petstore.org", new Address("Petstore", "Land", "666", serbia));
-        admin = new User("Admin", "Admin", "admin", "admin", "admin@petstore.org", new Address("Petstore", "Land", "666", serbia));
-        olja = new User("Marc", "Fleury", "marc", "marc", "marc@jboss.org", new Address("65 Ritherdon Road", "Los Angeles", "56421", serbia));
+        user = new Users("User", "User", "user", "user", "user@oljaee.com", new Address("Moja ulica i broj", "A i zemlja", "44", serbia));
+        admin = new Users("Admin", "Admin", "admin", "admin", "admin@oljaee.com", new Address("Takodje samo 44", "Zemlja do", "32", serbia));
+        olja = new Users("Olja", "Latinović", "olja88", "password1", "olja@oljaee.com", new Address("Licau jbro55", "Dgra", "12", serbia));
         
         userService.createUser(user);
         userService.createUser(admin);

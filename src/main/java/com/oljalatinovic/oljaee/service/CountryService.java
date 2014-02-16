@@ -1,6 +1,7 @@
 package com.oljalatinovic.oljaee.service;
 
 import com.oljalatinovic.oljaee.entity.Country;
+import com.oljalatinovic.oljaee.util.Loggable;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotNull;
  * @author Olja Latinović <oljalatinovic88@gmail.com>
  */
 @Stateless
+@Loggable
 public class CountryService implements Serializable {
     @Inject
     private EntityManager em;

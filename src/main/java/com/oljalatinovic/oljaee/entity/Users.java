@@ -37,12 +37,12 @@ import sun.misc.BASE64Encoder;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = User.FIND_BY_USERNAME, query = "SELECT u FROM User u WHERE u.username = :username"),
-    @NamedQuery(name = User.FIND_BY_USERNAME_PASSWORD, query = "SELECT u FROM User u WHERE c.username = :username AND u.password = :password"),
-    @NamedQuery(name = User.FIND_ALL, query = "SELECT u FROM User u")
+    @NamedQuery(name = Users.FIND_BY_USERNAME, query = "SELECT u FROM User u WHERE u.username = :username"),
+    @NamedQuery(name = Users.FIND_BY_USERNAME_PASSWORD, query = "SELECT u FROM User u WHERE u.username = :username AND u.password = :password"),
+    @NamedQuery(name = Users.FIND_ALL, query = "SELECT u FROM User u")
 })
 @XmlRootElement
-public class User extends BaseEntity<Long> {
+public class Users extends BaseEntity<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -91,10 +91,10 @@ public class User extends BaseEntity<Long> {
     public static final String FIND_BY_USERNAME_PASSWORD = "User.findByUsernameAndPassword";
     public static final String FIND_ALL = "User.findAll";
 
-    public User() {
+    public Users() {
     }
 
-    public User(String firstname, String lastname, String username, String plainTextPassword, String email, Address address) {
+    public Users(String firstname, String lastname, String username, String plainTextPassword, String email, Address address) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;

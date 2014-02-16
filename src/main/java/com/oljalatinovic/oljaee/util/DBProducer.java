@@ -10,6 +10,6 @@ import javax.persistence.PersistenceContext;
  */
 public class DBProducer {
     @Produces
-    @PersistenceContext(unitName = "applicationPetstorePU")
+    @PersistenceContext(unitName = "OljaEE_1.0-SNAPSHOTPU")
     private EntityManager em;
 }

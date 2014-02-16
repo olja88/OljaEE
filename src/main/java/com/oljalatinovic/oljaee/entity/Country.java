@@ -39,8 +39,8 @@ public class Country {
     @Size(min = 3, max = 3)
     private String numcode;
     
-    public static final String FIND_BY_NAME = "User.findByName";
-    public static final String FIND_ALL = "User.findAll";    
+    public static final String FIND_BY_NAME = "Country.findByName";
+    public static final String FIND_ALL = "Country.findAll";    
 
     public Country() {
     }
