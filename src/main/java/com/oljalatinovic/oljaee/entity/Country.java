@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Olja Latinović <oljalatinovic88@gmail.com>
  */
 @Entity
-//@Cacheable
+@Cacheable
 @NamedQueries({
     @NamedQuery(name = Country.FIND_BY_NAME, query = "SELECT c FROM Country c WHERE c.name = :name"),
     @NamedQuery(name = Country.FIND_ALL, query = "SELECT c FROM Country c")
