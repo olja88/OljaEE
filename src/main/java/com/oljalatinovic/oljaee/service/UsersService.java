@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
  */
 @Stateless
 @Loggable
-public class UserService implements Serializable {
+public class UsersService implements Serializable {
     
     @Inject
     private EntityManager em;

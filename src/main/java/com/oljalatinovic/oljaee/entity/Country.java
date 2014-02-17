@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Olja Latinović <oljalatinovic88@gmail.com>
  */
 @Entity
-@Cacheable
+//@Cacheable
 @NamedQueries({
     @NamedQuery(name = Country.FIND_BY_NAME, query = "SELECT c FROM Country c WHERE c.name = :name"),
     @NamedQuery(name = Country.FIND_ALL, query = "SELECT c FROM Country c")
 })
 @XmlRootElement
-public class Country {
+public class Country extends BaseEntity<Long> {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotNull
     @Size(min = 2, max = 2)
@@ -51,8 +51,7 @@ public class Country {
         this.printableName = printableName;
     }
 
-    public Country(Long id, String isoCode, String name, String printableName, String iso3, String numcode) {
-        this.id = id;
+    public Country(String isoCode, String name, String printableName, String iso3, String numcode) {
         this.isoCode = isoCode;
         this.name = name;
         this.printableName = printableName;
@@ -62,10 +61,12 @@ public class Country {
 
     
     
+    @Override
     public Long getId() {
         return id;
     }
 
+    @Override
     public void setId(Long id) {
         this.id = id;
     }

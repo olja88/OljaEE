@@ -18,6 +18,7 @@ import javax.validation.constraints.NotNull;
 @Stateless
 @Loggable
 public class CountryService implements Serializable {
+    
     @Inject
     private EntityManager em;
     

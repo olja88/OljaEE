@@ -37,9 +37,9 @@ import sun.misc.BASE64Encoder;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = Users.FIND_BY_USERNAME, query = "SELECT u FROM User u WHERE u.username = :username"),
-    @NamedQuery(name = Users.FIND_BY_USERNAME_PASSWORD, query = "SELECT u FROM User u WHERE u.username = :username AND u.password = :password"),
-    @NamedQuery(name = Users.FIND_ALL, query = "SELECT u FROM User u")
+    @NamedQuery(name = Users.FIND_BY_USERNAME, query = "SELECT u FROM Users u WHERE u.username = :username"),
+    @NamedQuery(name = Users.FIND_BY_USERNAME_PASSWORD, query = "SELECT u FROM Users u WHERE u.username = :username AND u.password = :password"),
+    @NamedQuery(name = Users.FIND_ALL, query = "SELECT u FROM Users u")
 })
 @XmlRootElement
 public class Users extends BaseEntity<Long> {
@@ -83,13 +83,13 @@ public class Users extends BaseEntity<Long> {
 
     @ElementCollection(targetClass = Group.class, fetch = EAGER)
     @Enumerated(STRING)
-    @CollectionTable(name = "user_group")
+    @CollectionTable(name = "users_group")
     @Column(name = "group_name")
     private List<Group> groups = new ArrayList<>();
 
-    public static final String FIND_BY_USERNAME = "User.findByUsername";
-    public static final String FIND_BY_USERNAME_PASSWORD = "User.findByUsernameAndPassword";
-    public static final String FIND_ALL = "User.findAll";
+    public static final String FIND_BY_USERNAME = "Users.findByUsername";
+    public static final String FIND_BY_USERNAME_PASSWORD = "Users.findByUsernameAndPassword";
+    public static final String FIND_ALL = "Users.findAll";
 
     public Users() {
     }
