@@ -22,6 +22,19 @@ public class UsersService implements Serializable {
     @Inject
     private EntityManager em;
     
+    public boolean doesLoginAlreadyExist(@NotNull String username) {
+
+        // Login has to be unique
+        TypedQuery<Users> typedQuery = em.createNamedQuery(Users.FIND_BY_USERNAME, Users.class);
+        typedQuery.setParameter("username", username);
+        try {
+            typedQuery.getSingleResult();
+            return true;
+        } catch (NoResultException e) {
+            return false;
+        }
+    }    
+    
     public Users createUser(@NotNull Users user) {
         em.persist(user);
         return user;
