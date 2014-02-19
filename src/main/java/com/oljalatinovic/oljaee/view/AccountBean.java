@@ -9,7 +9,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.security.auth.login.LoginContext;
+//import javax.security.auth.login.LoginContext; // Olja TODO
 import javax.security.auth.login.LoginException;
 
 /**
@@ -40,9 +40,9 @@ public class AccountBean extends AbstractBean implements Serializable {
     @LoggedIn
     private Users loggedinUser;
 
-    @Inject
-    @SessionScoped
-    private transient LoginContext loginContext;
+//    @Inject
+//    @SessionScoped
+//    private transient LoginContext loginContext;
 
     // ======================================
     // =              Public Methods        =

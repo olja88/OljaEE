@@ -5,27 +5,18 @@ import javax.inject.Named;
 import java.io.Serializable;
 
 /**
- * @author Antonio Goncalves
- *         http://www.antoniogoncalves.org
- *         --
+ *
+ * @author Olja Latinović <oljalatinovic88@gmail.com>
  */
 
 @Named
 @SessionScoped
 public class CredentialsBean implements Serializable {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
-
     private String login;
     private String password;
     private String password2;
-
-    // ======================================
-    // =         Getters & setters          =
-    // ======================================
-
+    
     public String getLogin() {
         return login;
     }
