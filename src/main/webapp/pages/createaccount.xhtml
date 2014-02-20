@@ -24,27 +24,27 @@
                 </div>
                 <div class="panel-body">
                     <h:panelGrid columns="3">
-                        <h:outputText value="#{i18n.customer_login}:"/>
+                        <h:outputText value="#{i18n.user_login}:"/>
                         <h:inputText value="#{accountBean.loggedinCustomer.login}" readonly="true"/>
                         <h:outputText value=""/>
 
-                        <h:outputText value="*#{i18n.customer_firstname}:"/>
+                        <h:outputText value="*#{i18n.user_firstname}:"/>
                         <h:inputText id="firstname" value="#{accountBean.loggedinCustomer.firstname}"/>
                         <h:message for="firstname" style="color: red;"/>
 
-                        <h:outputText value="*#{i18n.customer_lastname}:"/>
+                        <h:outputText value="*#{i18n.user_lastname}:"/>
                         <h:inputText id="lastname" value="#{accountBean.loggedinCustomer.lastname}"/>
                         <h:message for="lastname" style="color: red;"/>
 
-                        <h:outputText value="#{i18n.customer_email}:"/>
+                        <h:outputText value="#{i18n.user_email}:"/>
                         <h:inputText id="email" value="#{accountBean.loggedinCustomer.email}"/>
                         <h:message for="email" style="color: red;"/>
 
-                        <h:outputText value="#{i18n.customer_telephone}:"/>
+                        <h:outputText value="#{i18n.user_telephone}:"/>
                         <h:inputText id="telephone" value="#{accountBean.loggedinCustomer.telephone}"/>
                         <h:message for="telephone" style="color: red;"/>
 
-                        <h:outputText value="#{i18n.customer_dateOfBirth}:"/>
+                        <h:outputText value="#{i18n.user_dateOfBirth}:"/>
                         <p:calendar id="dateOfBirth" navigator="true" showOn="button" pattern="d/M/yyyy"
                                     value="#{accountBean.loggedinCustomer.dateOfBirth}"/>
                         <h:message for="dateOfBirth" style="color: red;"/>
