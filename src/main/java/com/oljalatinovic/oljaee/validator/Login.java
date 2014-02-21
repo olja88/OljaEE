@@ -27,10 +27,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 public @interface Login {
 
-    // ======================================
-    // =             Attributes             =
-    // ======================================
-
     String message() default "{com.oljalatinovic.oljaee.login.message}";
 
     Class<?>[] groups() default {};
