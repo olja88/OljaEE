@@ -3,19 +3,10 @@ package com.oljalatinovic.oljaee.entity;
 import com.oljalatinovic.oljaee.validator.Email;
 import com.oljalatinovic.oljaee.validator.Login;
 import java.security.MessageDigest;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import static javax.persistence.EnumType.STRING;
-import javax.persistence.Enumerated;
-import static javax.persistence.FetchType.EAGER;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -81,11 +72,11 @@ public class Users extends BaseEntity<Long> {
 
     private String loginToken; // TODO: make collection later
 
-    @ElementCollection(targetClass = Group.class, fetch = EAGER)
-    @Enumerated(STRING)
-    @CollectionTable(name = "users_group")
-    @Column(name = "group_name")
-    private List<Group> groups = new ArrayList<>();
+//    @ElementCollection(targetClass = Group.class, fetch = EAGER)
+//    @Enumerated(STRING)
+//    @CollectionTable(name = "users_group")
+//    @Column(name = "group_name")
+//    private List<Group> groups = new ArrayList<>();
 
     public static final String FIND_BY_USERNAME = "Users.findByUsername";
     public static final String FIND_BY_USERNAME_PASSWORD = "Users.findByUsernameAndPassword";
@@ -201,24 +192,24 @@ public class Users extends BaseEntity<Long> {
         this.loginToken = loginToken;
     }
 
-    public List<Group> getGroups() {
-        return groups;
-    }
+//    public List<Group> getGroups() {
+//        return groups;
+//    }
+//
+//    public void setGroups(List<Group> groups) {
+//        this.groups = groups;
+//    }
 
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
-    }
-
-    public List<String> getRoles() {
-        Set<String> roles = new HashSet<>();
-
-        for (Group group : getGroups()) {
-            for (Role role : group.getRoles()) {
-                roles.add(role.name());
-            }
-        }
-
-        return new ArrayList<>(roles);
-    }
+//    public List<String> getRoles() {
+//        Set<String> roles = new HashSet<>();
+//
+//        for (Group group : getGroups()) {
+//            for (Role role : group.getRoles()) {
+//                roles.add(role.name());
+//            }
+//        }
+//
+//        return new ArrayList<>(roles);
+//    }
 
 }

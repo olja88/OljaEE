@@ -75,8 +75,8 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
                                     <!--<i class="icon-user icon-white"></i>-->
-                                    <h:link outcome="/shopping/showaccount"
-                                            value="#{i18n.welcome} #{accountBean.loggedinCustomer.firstname}"
+                                    <h:link outcome="/pages/showaccount"
+                                            value="#{i18n.welcome} #{accountBean.loggedinUser.firstname}"
                                             rendered="#{accountBean.loggedIn}">
                                         <f:param name="cid" value="#{javax.enterprise.context.conversation.id}"/>
                                     </h:link>

@@ -25,28 +25,28 @@
                 <div class="panel-body">
                     <h:panelGrid columns="3">
                         <h:outputText value="#{i18n.user_login}:"/>
-                        <h:inputText value="#{accountBean.loggedinCustomer.login}" readonly="true"/>
+                        <h:inputText value="#{accountBean.loggedinUser.login}" readonly="true"/>
                         <h:outputText value=""/>
 
                         <h:outputText value="*#{i18n.user_firstname}:"/>
-                        <h:inputText id="firstname" value="#{accountBean.loggedinCustomer.firstname}"/>
+                        <h:inputText id="firstname" value="#{accountBean.loggedinUser.firstname}"/>
                         <h:message for="firstname" style="color: red;"/>
 
                         <h:outputText value="*#{i18n.user_lastname}:"/>
-                        <h:inputText id="lastname" value="#{accountBean.loggedinCustomer.lastname}"/>
+                        <h:inputText id="lastname" value="#{accountBean.loggedinUser.lastname}"/>
                         <h:message for="lastname" style="color: red;"/>
 
                         <h:outputText value="#{i18n.user_email}:"/>
-                        <h:inputText id="email" value="#{accountBean.loggedinCustomer.email}"/>
+                        <h:inputText id="email" value="#{accountBean.loggedinUser.email}"/>
                         <h:message for="email" style="color: red;"/>
 
                         <h:outputText value="#{i18n.user_telephone}:"/>
-                        <h:inputText id="telephone" value="#{accountBean.loggedinCustomer.telephone}"/>
+                        <h:inputText id="telephone" value="#{accountBean.loggedinUser.telephone}"/>
                         <h:message for="telephone" style="color: red;"/>
 
                         <h:outputText value="#{i18n.user_dateOfBirth}:"/>
                         <p:calendar id="dateOfBirth" navigator="true" showOn="button" pattern="d/M/yyyy"
-                                    value="#{accountBean.loggedinCustomer.dateOfBirth}"/>
+                                    value="#{accountBean.loggedinUser.dateOfBirth}"/>
                         <h:message for="dateOfBirth" style="color: red;"/>
 
                     </h:panelGrid>
@@ -60,27 +60,27 @@
                 <div class="panel-body">
                     <h:panelGrid columns="3">
                         <h:outputText value="*#{i18n.address_street1}:"/>
-                        <h:inputText id="street1" value="#{accountBean.loggedinCustomer.homeAddress.street1}"/>
+                        <h:inputText id="street1" value="#{accountBean.loggedinUser.homeAddress.street1}"/>
                         <h:message for="street1" style="color: red;"/>
 
                         <h:outputText value="#{i18n.address_street2}:"/>
-                        <h:inputText id="street2" value="#{accountBean.loggedinCustomer.homeAddress.street2}"/>
+                        <h:inputText id="street2" value="#{accountBean.loggedinUser.homeAddress.street2}"/>
                         <h:message for="street2" style="color: red;"/>
 
                         <h:outputText value="*#{i18n.address_city}:"/>
-                        <h:inputText id="city" value="#{accountBean.loggedinCustomer.homeAddress.city}"/>
+                        <h:inputText id="city" value="#{accountBean.loggedinUser.homeAddress.city}"/>
                         <h:message for="city" style="color: red;"/>
 
                         <h:outputText value="#{i18n.address_state}:"/>
-                        <h:inputText id="state" value="#{accountBean.loggedinCustomer.homeAddress.state}"/>
+                        <h:inputText id="state" value="#{accountBean.loggedinUser.homeAddress.state}"/>
                         <h:message for="state" style="color: red;"/>
 
                         <h:outputText value="*#{i18n.address_zipcode}:"/>
-                        <h:inputText id="zipcode" value="#{accountBean.loggedinCustomer.homeAddress.zipcode}"/>
+                        <h:inputText id="zipcode" value="#{accountBean.loggedinUser.homeAddress.zipcode}"/>
                         <h:message for="zipcode" style="color: red;"/>
 
                         <h:outputText value="*#{i18n.address_country}:"/>
-                        <h:inputText id="country" value="#{accountBean.loggedinCustomer.homeAddress.country}"/>
+                        <h:inputText id="country" value="#{accountBean.loggedinUser.homeAddress.country}"/>
                         <h:message for="country" style="color: red;"/>
 
                     </h:panelGrid>

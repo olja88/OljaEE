@@ -60,7 +60,7 @@ public class AccountBean extends AbstractBean implements Serializable {
 
 // TODO       loginContext.login();
         loggedinUser = usersService.findUser(credentials.getLogin());
-        return "main.faces";
+        return "main";
     }
 
     public String doCreateNewAccount() {
@@ -85,12 +85,12 @@ public class AccountBean extends AbstractBean implements Serializable {
         loggedinUser.setUsername(credentials.getLogin());
         loggedinUser.setPassword(loggedinUser.digestPassword(credentials.getPassword()));
 
-        return "createaccount.faces";
+        return "createaccount";
     }
 
     public String doCreateCustomer() {
         loggedinUser = usersService.createUser(loggedinUser);
-        return "main.faces";
+        return "main";
     }
 
 
@@ -101,13 +101,13 @@ public class AccountBean extends AbstractBean implements Serializable {
             conversation.end();
         }
         addInformationMessage("been_loggedout");
-        return "main.faces";
+        return "main";
     }
 
     public String doUpdateAccount() {
         loggedinUser = usersService.updateUser(loggedinUser);
         addInformationMessage("account_updated");
-        return "showaccount.faces";
+        return "showaccount";
     }
 
     public boolean isLoggedIn() {
