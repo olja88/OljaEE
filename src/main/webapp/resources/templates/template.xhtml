@@ -58,14 +58,14 @@
                                         <li>
                                             <h:commandLink action="#{localeBean.setLanguage('sr')}" styleClass="menu-sr"
                                                            immediate="true">
-                                                <f:ajax render="@form"/>
+                                                <!-- <f:ajax render="@form"/> Izbacen ajax da bi osvezio sve sa prevodom -->
                                                 <h:outputText value="&nbsp;Srpski"/>
                                             </h:commandLink>
                                         </li>
                                         <li>
                                             <h:commandLink action="#{localeBean.setLanguage('en')}" styleClass="menu-en"
                                                            immediate="true">
-                                                <f:ajax render="@form"/>
+                                                <!-- <f:ajax render="@form"/> Izbacen ajax da bi osvezio sve sa prevodom --> 
                                                 <h:outputText value="&nbsp;English"/>
                                             </h:commandLink>
                                         </li>
