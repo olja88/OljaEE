@@ -59,6 +59,7 @@ public class AccountBean extends AbstractBean implements Serializable {
         }
 
 // TODO       loginContext.login();
+        // Ovde builder patern za meni i ostale komponente
         loggedinUser = usersService.findUser(credentials.getLogin());
         return "main";
     }

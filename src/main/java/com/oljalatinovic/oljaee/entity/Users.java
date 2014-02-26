@@ -33,11 +33,7 @@ import sun.misc.BASE64Encoder;
     @NamedQuery(name = Users.FIND_ALL, query = "SELECT u FROM Users u")
 })
 @XmlRootElement
-public class Users extends BaseEntity<Long> {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class Users extends CodesEntity {
 
     @Column(unique = true, nullable = false, length = 10)
     @Login
@@ -105,16 +101,6 @@ public class Users extends BaseEntity<Long> {
             throw new RuntimeException("Exception encoding password", e);
         }
     }   
-    
-    @Override
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getEmail() {
         return email;
