@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -27,6 +30,18 @@ public abstract class CodesEntity implements Serializable {
     private Long id;
     @Version
     private Long version;
+    
+    @Column(nullable = false)
+    @NotNull
+    @Size(min = 2, max = 50)
+    private String code;
+    
+    @Column(nullable = false)
+    @NotNull
+    @Size(min = 2, max = 200)
+    private String description;
+
+    private String descriptionLong;    
     
     @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER,orphanRemoval=true)     
     private List<Users> createdBy;
@@ -99,5 +114,21 @@ public abstract class CodesEntity implements Serializable {
 
     public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
+    }   
+    
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getDescriptionLong() {
+        return descriptionLong;
+    }
+
+    public void setDescriptionLong(String descriptionLong) {
+        this.descriptionLong = descriptionLong;
     }    
 }
