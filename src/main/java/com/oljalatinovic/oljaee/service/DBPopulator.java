@@ -41,12 +41,22 @@ public class DBPopulator {
 
     @PostConstruct
     private void populateDB() {
-        serbia = new Country("SR","SERBIA","Serbia","SER","111");               
-        countryService.createCountry(serbia);        
+        serbia = countryService.findCountry("SERBIA");
+        if(serbia == null)
+           serbia = new Country("SR","SERBIA","Serbia","SER","111");
+        countryService.createCountry(serbia);
         
-        user = new Users("User", "User", "user", "user", "user@oljaee.com", new Address("Moja ulica i broj", "A i grad", "44", new Country("SR","SERBIA","Serbia","SER","1")));
-        admin = new Users("Admin", "Admin", "admin", "admin", "admin@oljaee.com", new Address("Takodje samo 44", "Grad do", "32", new Country("SR","SERBIA","Serbia","SER","1")));
-        olja = new Users("Olja", "Latinović", "olja88", "password1", "olja@oljaee.com", new Address("Licau jbro55", "Dgra", "12", new Country("SR","SERBIA","Serbia","SER","1")));
+        user = userService.findUser("User");
+        if(user == null)
+            user = new Users("User", "User", "user", "user", "user@oljaee.com", new Address("Moja ulica i broj", "A i grad", "44", new Country("SR","SERBIA","Serbia","SER","1")));
+        
+        admin = userService.findUser("Admin");
+        if(admin == null)
+            admin = new Users("Admin", "Admin", "admin", "admin", "admin@oljaee.com", new Address("Takodje samo 44", "Grad do", "32", new Country("SR","SERBIA","Serbia","SER","1")));
+        
+        olja = userService.findUser("Olja");
+        if(olja == null)
+            olja = new Users("Olja", "Latinović", "olja88", "password1", "olja@oljaee.com", new Address("Licau jbro55", "Dgra", "12", new Country("SR","SERBIA","Serbia","SER","1")));
 
         userService.createUser(user);
         userService.createUser(admin);
@@ -55,10 +65,19 @@ public class DBPopulator {
 
     @PreDestroy
     private void clearDB() {
-        userService.removeUser(olja);
-        userService.removeUser(user);
-        userService.removeUser(admin);
         
-        countryService.removeCountry(serbia);
+        olja = userService.findUser("Olja");
+        if(olja != null)
+            userService.removeUser(olja);
+        user = userService.findUser("User");
+        if(user != null)
+            userService.removeUser(user);
+        admin = userService.findUser("Admin");
+        if(admin != null)
+            userService.removeUser(admin);
+        
+        serbia = countryService.findCountry("SERBIA");
+        if(serbia != null)
+           countryService.removeCountry(serbia);
     }    
 }

@@ -69,9 +69,7 @@ public class AccountBean extends AbstractBean implements Serializable {
       try {
           lc = new LoginContext("OljaLogin", 
                       new TextCallbackHandler());
-      } catch (LoginException le) {
-          addErrorMessage("cant_create_loginContext");
-      } catch (SecurityException se) {
+      } catch (LoginException | SecurityException le) {
           addErrorMessage("cant_create_loginContext");
       } 
 

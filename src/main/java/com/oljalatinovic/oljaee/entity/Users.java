@@ -7,6 +7,9 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
@@ -29,8 +32,12 @@ import sun.misc.BASE64Encoder;
     @NamedQuery(name = Users.FIND_ALL, query = "SELECT u FROM Users u")
 })
 @XmlRootElement
-public class Users extends CodesEntity {
+public class Users extends BaseEntity<Long> {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    
     @Column(unique = true, nullable = false, length = 10)
     @Login
     private String username;
@@ -97,6 +104,16 @@ public class Users extends CodesEntity {
             throw new RuntimeException("Exception encoding password", e);
         }
     }   
+     
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }     
 
     public String getEmail() {
         return email;
