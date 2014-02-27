@@ -3,13 +3,14 @@ package com.oljalatinovic.oljaee.view;
 import com.oljalatinovic.oljaee.entity.Users;
 import com.oljalatinovic.oljaee.service.UsersService;
 import com.oljalatinovic.oljaee.util.Loggable;
+import com.sun.security.auth.callback.TextCallbackHandler;
 import java.io.Serializable;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
-//import javax.security.auth.login.LoginContext; // Olja TODO
+import javax.security.auth.login.LoginContext;
 import javax.security.auth.login.LoginException;
 
 /**
@@ -39,6 +40,8 @@ public class AccountBean extends AbstractBean implements Serializable {
     @Produces
     @LoggedIn
     private Users loggedinUser;
+    
+    boolean loginSuccess = false;
 
 //    @Inject
 //    @SessionScoped
@@ -60,8 +63,31 @@ public class AccountBean extends AbstractBean implements Serializable {
 
 // TODO       loginContext.login();
         // Ovde builder patern za meni i ostale komponente
-        loggedinUser = usersService.findUser(credentials.getLogin());
-        return "main";
+        //loggedinUser = usersService.findUser(credentials.getLogin());
+              
+      LoginContext lc = null;
+      try {
+          lc = new LoginContext("OljaLogin", 
+                      new TextCallbackHandler());
+      } catch (LoginException le) {
+          addErrorMessage("cant_create_loginContext");
+      } catch (SecurityException se) {
+          addErrorMessage("cant_create_loginContext");
+      } 
+
+      try {
+    
+          // attempt authentication
+          lc.login();
+          loginSuccess = true;
+      } catch (LoginException le) {
+          addWarningMessage("auth_failed");
+      }
+    
+        if(loginSuccess)
+            return "main";
+        else
+            return "signon";
     }
 
     public String doCreateNewAccount() {
