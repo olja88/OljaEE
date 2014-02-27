@@ -42,25 +42,28 @@ public class DBPopulator {
     @PostConstruct
     private void populateDB() {
         serbia = countryService.findCountry("SERBIA");
-        if(serbia == null)
+        if(serbia == null) {
            serbia = new Country("SR","SERBIA","Serbia","SER","111");
-        countryService.createCountry(serbia);
+           countryService.createCountry(serbia);
+        }
         
         user = userService.findUser("User");
-        if(user == null)
+        if(user == null) {
             user = new Users("User", "User", "user", "user", "user@oljaee.com", new Address("Moja ulica i broj", "A i grad", "44", new Country("SR","SERBIA","Serbia","SER","1")));
-        
+            userService.createUser(user);
+        }
+    
         admin = userService.findUser("Admin");
-        if(admin == null)
+        if(admin == null) {
             admin = new Users("Admin", "Admin", "admin", "admin", "admin@oljaee.com", new Address("Takodje samo 44", "Grad do", "32", new Country("SR","SERBIA","Serbia","SER","1")));
+            userService.createUser(admin);
+        }
         
         olja = userService.findUser("Olja");
-        if(olja == null)
+        if(olja == null) {
             olja = new Users("Olja", "Latinović", "olja88", "password1", "olja@oljaee.com", new Address("Licau jbro55", "Dgra", "12", new Country("SR","SERBIA","Serbia","SER","1")));
-
-        userService.createUser(user);
-        userService.createUser(admin);
-        userService.createUser(olja);
+            userService.createUser(olja);
+        }
     }
 
     @PreDestroy
