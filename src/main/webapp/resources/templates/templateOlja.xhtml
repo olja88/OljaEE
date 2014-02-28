@@ -12,21 +12,16 @@
         <div class="col-md-2 well">
             <ul class="nav nav-list">
                 <li>
-                    <p:accordionPanel>
-                        <p:tab title="Menu 1">
-<!--                            <br />
-                            <p:calendar mode="inline" navigator="none"/>
-                            <br />-->
-                            <h:outputText value="Menu 2 Content" />
-                        </p:tab>
+                    <p:accordionPanel value="#{mainMenuBean.meni}" var="mainMenu">
+                        <p:tab title="#{mainMenu.code}">  
+                            <h:panelGrid columns="2" cellpadding="10">  
+                                <p:graphicImage value="/images/menu/#{mainMenu.imgPath}" />  
 
-                        <p:tab title="Menu 2">
-                            <h:outputText value="Menu 2 Content" />
-                        </p:tab>
-
-                        <p:tab title="Menu 3">
-                            <h:outputText value="Menu 3 Content" />
-                        </p:tab>
+                                <h:panelGrid columns="2" cellpadding="10">  
+                                    <h:outputText value="#{mainMenu.description}" style="font-weight: bold"/>  
+                                </h:panelGrid>  
+                            </h:panelGrid>  
+                        </p:tab>  
                     </p:accordionPanel>
                 </li>
             </ul>
