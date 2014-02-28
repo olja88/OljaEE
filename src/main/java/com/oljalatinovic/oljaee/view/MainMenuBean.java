@@ -4,7 +4,6 @@ import com.oljalatinovic.oljaee.entity.MainMenu;
 import com.oljalatinovic.oljaee.service.MainMenuService;
 import com.oljalatinovic.oljaee.util.Loggable;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;

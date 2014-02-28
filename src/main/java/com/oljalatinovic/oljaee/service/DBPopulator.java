@@ -95,11 +95,11 @@ public class DBPopulator {
         try {
             administracija = mainMenuService.findMainMenu("Administracija");
         } catch (Exception e) {
-            administracija = new MainMenu("Administracija", "Administracija", "Administracija", olja, olja, new Date(), new Date(), null /*Boolean.TRUE*/ , null, "imgAdmin");
+            administracija = new MainMenu("Administracija", "Administracija", "Administracija", olja, olja, new Date(), new Date(), Boolean.TRUE , null, "imgAdmin");
             mainMenuService.createMainMenu(administracija);
         }            
         if (administracija == null) {
-            administracija = new MainMenu("Administracija", "Administracija", "Administracija", olja, olja, new Date(), new Date(), null /*Boolean.TRUE*/ , null, "imgAdmin");
+            administracija = new MainMenu("Administracija", "Administracija", "Administracija", olja, olja, new Date(), new Date(), Boolean.TRUE , null, "imgAdmin");
             mainMenuService.createMainMenu(administracija);
         }        
     }

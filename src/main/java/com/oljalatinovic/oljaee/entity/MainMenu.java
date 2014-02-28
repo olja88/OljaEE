@@ -1,7 +1,6 @@
 package com.oljalatinovic.oljaee.entity;
 
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -34,7 +33,7 @@ public class MainMenu extends CodesEntity {
         this.creationDate = creationDate;
         this.modifiedBy = modifiedBy;
         this.modificationDate = modificationDate;
-        this.isActive = isActive;
+//        this.isActive = isActive;
         this.parentId = parentId;
         this.imgPath = imgPath;
     }

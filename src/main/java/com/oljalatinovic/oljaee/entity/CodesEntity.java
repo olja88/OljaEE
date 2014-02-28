@@ -56,8 +56,8 @@ public abstract class CodesEntity implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     Date modificationDate;
 
-    @Convert(converter = BooleanConverter.class)
-    Boolean isActive;
+//    @Convert(converter = BooleanConverter.class)
+//    Boolean isActive;
 
     // Implementirati pravno lice nakon sifarnika pravnih lica
     public Long getId() {
@@ -108,13 +108,13 @@ public abstract class CodesEntity implements Serializable {
         this.modificationDate = modificationDate;
     }
 
-    public Boolean isIsActive() {
-        return isActive;
-    }
-
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
-    }
+//    public Boolean isIsActive() {
+//        return isActive;
+//    }
+//
+//    public void setIsActive(Boolean isActive) {
+//        this.isActive = isActive;
+//    }
 
     public String getCode() {
         return code;
