@@ -75,6 +75,7 @@ public class DBPopulator {
         administracija = mainMenuService.findMainMenu("Administracija");
         if (administracija == null) {
             administracija = new MainMenu("Administracija", "Administracija", "Administracija", olja, olja, new Date(), new Date(), Boolean.TRUE , null, "imgAdmin");
+            mainMenuService.createMainMenu(administracija);
         }        
     }
 
